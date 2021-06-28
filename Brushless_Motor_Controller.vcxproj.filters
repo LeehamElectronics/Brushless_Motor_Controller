@@ -22,9 +22,7 @@
     <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\LICENSE">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md">
-      <Filter>Source Files</Filter>
-    </None>
+    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Brushless_Motor_Controller.vsarduino.h">
