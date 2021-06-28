@@ -1,0 +1,60 @@
+﻿<!--
+ ██╗░░░░░███████╗███████╗██╗░░██╗░█████╗░███╗░░░███╗██╗░██████╗      ░██████╗░█████╗░███████╗████████╗░██╗░░░░░░░██╗░█████╗░██████╗░███████╗
+ ██║░░░░░██╔════╝██╔════╝██║░░██║██╔══██╗████╗░████║╚█║██╔════╝      ██╔════╝██╔══██╗██╔════╝╚══██╔══╝░██║░░██╗░░██║██╔══██╗██╔══██╗██╔════╝
+ ██║░░░░░█████╗░░█████╗░░███████║███████║██╔████╔██║░╚╝╚█████╗░      ╚█████╗░██║░░██║█████╗░░░░░██║░░░░╚██╗████╗██╔╝███████║██████╔╝█████╗░░
+ ██║░░░░░██╔══╝░░██╔══╝░░██╔══██║██╔══██║██║╚██╔╝██║░░░░╚═══██╗      ░╚═══██╗██║░░██║██╔══╝░░░░░██║░░░░░████╔═████║░██╔══██║██╔══██╗██╔══╝░░
+ ███████╗███████╗███████╗██║░░██║██║░░██║██║░╚═╝░██║░░░██████╔╝      ██████╔╝╚█████╔╝██║░░░░░░░░██║░░░░░╚██╔╝░╚██╔╝░██║░░██║██║░░██║███████╗
+ ╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░╚═════╝░     ╚═════╝░░╚════╝░╚═╝░░░░░░░░╚═╝░░░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝
+																																		-->
+<html>
+
+<head>
+
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+</head>
+<script src="applicationForFigitSpinnerServer.js"></script>
+<center>
+	<input type="button" onclick="button()" value="Begin Feed" />
+	<h1>The current speed is:  <span id="myText"></span> cycles per second.</h1>
+	<h1>The max speed is:  <span id="maxS"></span> cycles per second.</h1>
+	<h1>The max acceleration is:  <span id="maxA"></span> cycles per second per second.</h1>
+	<input type="button" onclick="on()" value="On" />
+	<input type="button" onclick="off()" value="Off" />
+
+	<h3> All software and hardware designed and created by Liam Price 2019 </h3>
+	<h3> LinkedIn:  www.linkedin.com/in/liamisprice/</h3>
+	<h3> FaceBook: www.facebook.com/liamisprice </h3>
+	<h3> Youtube: www.youtube.com/channel/UCiBew_QQnG5jUlY5C1-NCqw</h3>
+	<h3> GitHub: https://github.com/LeehamElectronics</h3>
+</center>
+</body>
+<script>
+         <!--
+	var testvar
+	var maxSVar
+	var maxAVar
+
+	function button() {
+		movement.on('value', snap => testvar = (snap.val()));
+		document.getElementById("myText").innerHTML = testvar;
+		maxSpeed.on('value', snap => maxSVar = (snap.val()));
+		document.getElementById("maxS").innerHTML = maxSVar;
+		maxAcceleration.on('value', snap => maxAVar = (snap.val()));
+		document.getElementById("maxA").innerHTML = maxAVar;
+		setTimeout(function () { button(); }, 800);
+	}
+
+	function on() {
+		FS.set({
+			"firebaseActivationVar": 3,
+		});
+	}
+	function off() {
+		FS.set({
+			"firebaseActivationVar": 1,
+		});
+	}
+		 //-->
+</script>
+</html>
+
