@@ -27,83 +27,88 @@
  ??????????????????????????????????????????????????????????????     ???????????????????????????????????????????????????????????????????????
  */
 
+/*
+   Include Libaries:
+*/
 #include <SoftwareSerial.h>
-SoftwareSerial s(3, D5);  //serial pins for the serial libary are specified here, rx/tx
-#include <ESP8266WiFi.h> //just the basic libary for coding esp8266 Wi-Fi boards like the nodemcu
-#include <FirebaseArduino.h> //live database libary so we can read / write to the Internet of Thing!
-
-//Firebase Definitions:
-//setup firebase variables to connect to my firebase project online
-#define FIREBASE_HOST "REDACTED"
-#define FIREBASE_AUTH "REDACTED"
-#define WIFI_SSID "REDACTED"
-#define WIFI_PASSWORD "REDACTED"
-
-float firebaseActivationVar = 0; //for firebase
-float previous = 0; //for firebase
+SoftwareSerial s(6, 5);  //serial pins for the serial libary are specified here, rx/tx
+/*
+   Setup Variables
+*/
+const int reedInput = 9;
+//const int relayOut = 8;
+int reedSwitchState = 0;
+unsigned long previousMillis = 0;        // will store last time LED was updated
+const long interval = 1000;           // interval at which to blink (milliseconds)
+int previous = 0;
+float speedCounter;
 boolean runMotor = false;
-float data; //variable to store incomming data from arduino nano
-float previous2 = 0; //for firebase
-float maxSpeed = 0;
-float acceleration = 0;
-float maxAcceleration = 0;
-float previousSpeed = 0;
+int data; //variable to store incomming data from wifi board
 
-void setup()
-{
-    Serial.begin(9600);   // Initiate a serial communication
+void setup() {
+    // pinMode(relayOut, OUTPUT);
+    pinMode(reedInput, INPUT_PULLUP);
     s.begin(22800); //initialize serial between the 2 boards
-    Serial.println("turned on");
-    // connect to Wi-Fi
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-    Serial.print("connecting");
-    while (WiFi.status() != WL_CONNECTED) {
-        Serial.print(".");
-        delay(500);
-    }
-    Serial.println();
-    Serial.print("connected: ");
-    Serial.println(WiFi.localIP());
-
-    //connect to firebase server and specift the variables we want to read and write to
-    Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-    Serial.println(Firebase.getFloat("FS/firebaseActivationVar")); //this variable in the database stores the movement variable (left right forward back)
-    Firebase.setFloat("/object", 0);
-    Firebase.setFloat("/maxSpeed", 0);
-    Firebase.setFloat("/maxAcceleration", 0);
-
-    while (runMotor == false) {
-        firebaseActivationVar = Firebase.getFloat("FS/firebaseActivationVar"); //firebase variable
-        if (firebaseActivationVar == 3) {
+    Serial.begin(19200);   // Initiate a serial communication
+    Serial.println("Setup completed");
+    // digitalWrite(relayOut, LOW);
+    // delay(500);
+    // digitalWrite(relayOut, HIGH);
+    // delay(500);
+    // digitalWrite(relayOut, LOW);
+    //delay(500);
+    // digitalWrite(relayOut, HIGH);
+    //  Serial.println("Test000 completed");
+    /*
+      while (runMotor == false) {
+        delay(300);
+        if (s.available() > 0) //if data in serial is greater than 0...
+        {
+          data = s.read(); //then write that into the "data" variable for furthur use
+          if (data == '3') {
             runMotor = true;
-            Serial.print("Motor On");
-            //tell other arduino to start motor and sending data  
-            s.write('3');
+          }
+        }
+      }
+    */
+
+}
+
+void loop() {
+    unsigned long currentMillis = millis();
+    reedSwitchState = digitalRead(reedInput);
+
+    if (currentMillis - previousMillis >= interval) {
+        //send value to another arduino board since multithreading doesnt work
+        s.write(speedCounter);
+        Serial.println(speedCounter);
+        previousMillis = currentMillis;
+        speedCounter = 0;
+    }
+
+
+    if (reedSwitchState == LOW) {
+        if (previous == 1) {
+            delay(10);
+            previous = 0;
+            //  Serial.println("low");
+            speedCounter = speedCounter + 1;
+
         }
     }
+
+    if (reedSwitchState != LOW) {
+        if (previous == 0) {
+            previous = 1;
+            //Serial.println("high");
+        }
+    }
+
+    // else (ree) {
+    // previous = 1;
+    // }
+
+
+
+
 }
-
-void loop()
-{
-    previousSpeed = data;
-    //read from other arduino board, if input has changed send that to firebas
-    if (s.available() > 0) //if data in serial is greater than 0...
-    {
-        data = s.read(); //then write that into the "data" variable for furthur use
-        Firebase.setFloat("/object", data);
-    }
-    if (data > maxSpeed) {
-        maxSpeed = data;
-        Firebase.setFloat("/maxSpeed", maxSpeed);
-    }
-    acceleration = data - previousSpeed;
-
-    if (acceleration > maxAcceleration) {
-        maxAcceleration = acceleration;
-        Firebase.setFloat("/maxAcceleration", maxAcceleration);
-    }
-}
-
-/*
-   ALL FUNCTIONS BELOW HERE
-*/

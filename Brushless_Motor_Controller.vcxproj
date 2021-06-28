@@ -101,9 +101,14 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Liams\Electrical Projects\Shed Projects\figit spinner motor\applicationForFigitSpinnerServer.js" />
+    <None Include="..\..\..\Liams\Electrical Projects\Shed Projects\figit spinner motor\Figit-Spinner Webpage.html" />
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
     <None Include="Brushless_Motor_Controller.ino">
+      <FileType>CppCode</FileType>
+    </None>
+    <None Include="motorDriver.ino">
       <FileType>CppCode</FileType>
     </None>
     <None Include="README.md" />

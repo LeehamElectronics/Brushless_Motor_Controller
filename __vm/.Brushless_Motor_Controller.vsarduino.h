@@ -105,5 +105,6 @@ typedef long pthread_cond_t;
 // Write Value to Register
 #define WRITE_PERI_REG(addr,val)
 #include "Brushless_Motor_Controller.ino"
+#include "motorDriver.ino"
 #endif
 #endif

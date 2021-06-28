@@ -19,6 +19,9 @@
     <None Include=".gitignore" />
     <None Include=".gitattributes" />
     <None Include="README.md" />
+    <None Include="motorDriver.ino" />
+    <None Include="..\..\..\Liams\Electrical Projects\Shed Projects\figit spinner motor\applicationForFigitSpinnerServer.js" />
+    <None Include="..\..\..\Liams\Electrical Projects\Shed Projects\figit spinner motor\Figit-Spinner Webpage.html" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Brushless_Motor_Controller.vsarduino.h">
