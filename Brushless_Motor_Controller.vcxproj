@@ -103,7 +103,9 @@
   <ItemGroup>
     <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\.gitignore" />
     <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\LICENSE" />
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md" />
+    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </None>
     <None Include="Brushless_Motor_Controller.ino">
       <FileType>CppCode</FileType>
     </None>
