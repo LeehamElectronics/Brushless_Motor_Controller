@@ -67,6 +67,9 @@ bld/
 [Ll]og/
 [Ll]ogs/
 __vm/
+Brushless_Motor_Controller.sln
+Brushless_Motor_Controller.vcxproj
+Brushless_Motor_Controller.vcxproj.filters
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
