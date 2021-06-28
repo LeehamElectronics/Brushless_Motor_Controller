@@ -3,6 +3,10 @@ This project was started in 2019 as my Year 11 Physics project (practical invest
 
 Here is the research document I put together at the end of the assignment:
 ![image](https://user-images.githubusercontent.com/51737378/123562881-be527880-d7f4-11eb-9f2b-4a358e0eee90.png)
+
+Here is a little video of the motor turning, I will later upload a video of the entire system including the web interface:
+https://youtu.be/SDtuPPtNymA
+
 Thanks for checking out this project! Feel free to download and try on your own Arduino board. 
 
 ###### Credit to my awesome teacher Roy Preece for teaching me Year 11 Physics!!!
