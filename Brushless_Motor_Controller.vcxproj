@@ -101,12 +101,12 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\.gitignore" />
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\LICENSE" />
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
     <None Include="Brushless_Motor_Controller.ino">
       <FileType>CppCode</FileType>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Brushless_Motor_Controller.vsarduino.h" />

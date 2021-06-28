@@ -16,13 +16,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Brushless_Motor_Controller.ino" />
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\.gitignore">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\LICENSE">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="..\..\..\..\Downloads\Brushless-Motor-Controller-main\README.md" />
+    <None Include=".gitignore" />
+    <None Include=".gitattributes" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Brushless_Motor_Controller.vsarduino.h">
