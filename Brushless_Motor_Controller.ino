@@ -1,15 +1,10 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                     PLEASE READ THE FOLLOWING!                                    *
- * This open source software was written by Liam Price 2020 and is FREE to use...                    *
+ * This open source software was written by Liam Price 2019 and is FREE to use...                    *
  * The purpose of this software is to compile and run on an Arduino based IoT device, like an ESP32  *
  *                                                                                                   *
- * This is used to control an 'Exploration Robot' that I designed to be controlled from a computer   *
- * steering wheel joystick, however you can use the code for any robot project, if you want to see   *
- * the Exploration Robot I designed this for software, visit my GitHub Repo for it:                  *
- * https://github.com/LeehamElectronics/Exploration-Robot-Arduino                                    *
- *                                                                                                   *
- * And here is the open source Python Control Panel I made for it:                                   *
- * https://github.com/LeehamElectronics/Exploration-Robot-Control-Panel                              *
+ * This is used to control a brushless motor that I modeled with a fidget spinner. Sounds pretty     *
+ * stupid, and it is. It was pretty good for my Year 11 VCE Physics practial investigation though.   *
  *                                                                                                   *
  * If you'd like to support my open source work, buy me a coffee:                                    *
  * https://www.paypal.com/paypalme/liamproice/                                                       *
@@ -103,7 +98,3 @@ void loop()
         Firebase.setFloat("/maxAcceleration", maxAcceleration);
     }
 }
-
-/*
-   ALL FUNCTIONS BELOW HERE
-*/
